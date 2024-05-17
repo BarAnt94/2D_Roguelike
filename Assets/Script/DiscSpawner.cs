@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class DiscSpawner : MonoBehaviour
 {
     [SerializeField] private DiscController m_discPrefab;
-    [SerializeField] private float m_spawnFrequency = 2;
+    [SerializeField] public float m_spawnFrequency = 2;
 
     void Start()
     {
         StartCoroutine(C_Spawn());
     }
+
 
     private void SpawnDisc()
     {
