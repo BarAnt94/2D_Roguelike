@@ -10,6 +10,7 @@ public class Characontroller : MonoBehaviour
     private bool m_isAlive = true;
 
     [SerializeField] GameObject character;
+    [SerializeField] GameObject Camera;
 
     public void TakeDamage(DiscController disc)
     {
@@ -27,6 +28,7 @@ public class Characontroller : MonoBehaviour
         if (m_isAlive == false)
         {
             character.SetActive(false);
+            Camera.SetActive(false);
         }
     }
 
