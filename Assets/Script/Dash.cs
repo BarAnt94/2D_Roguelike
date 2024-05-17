@@ -42,26 +42,27 @@ public class Dash : MonoBehaviour
             }
         }
 
-            if (DashCounter > 0) ;
+        if (DashCounter > 0);
+        {
+            DashCounter -= Time.deltaTime;
+
+            if (DashCounter <= 0)
             {
-                DashCounter -= Time.deltaTime;
+                activeMoveSpeed = MoveSpeed;
+                DashCoolCounter = dashCooldown;
 
-                if (DashCounter <= 0)
-                {
-                    activeMoveSpeed = MoveSpeed;
-                    DashCoolCounter = dashCooldown;
-
-                }
-                if (DashCoolCounter > 0)
-                {
-                    DashCoolCounter -= Time.deltaTime;
-                }
             }
-
-
+            if (DashCoolCounter > 0)
+            {
+                DashCoolCounter -= Time.deltaTime;
+            }
         }
+
+
     }
-}
+
+}   
+
 
 
 
