@@ -13,7 +13,9 @@ public class DiscController : MonoBehaviour
 
     [Header("Rotation")]
     [SerializeField] private Transform m_rotationHandler;
-    [SerializeField] private float m_rotationSpeed = 25;
+    [SerializeField] private float m_rotationSpeed = 25; 
+
+    private bool m_isRotatingClockwise = true;
 
     // Start is called before the first frame update
     void Start()
