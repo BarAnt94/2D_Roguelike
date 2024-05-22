@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Dash : MonoBehaviour
 {
+    public bool isdashing = false;
     public float MoveSpeed;
     public Rigidbody2D rb2d;
-    private Vector2 MoveInput;
-
-    private float activeMoveSpeed;
     public float dashSpeed;
+    public float dashLength = .5f, dashCooldown = 1f;
+    public GameObject Hitbox;
 
-    public float dashLenght = .5f, dashCooldown = 1f;
-
-    private float DashCounter;
-    private float DashCoolCounter;
+    private Vector2 MoveInput;
+    private float activeMoveSpeed;
+    private float dashCounter;
+    private float dashCoolCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -30,39 +32,36 @@ public class Dash : MonoBehaviour
 
         MoveInput.Normalize();
 
-        rb2d.velocity = MoveInput * activeMoveSpeed;
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (dashCounter > 0)
         {
-            if (DashCoolCounter <= 0 && DashCounter <= 0)
+            dashCounter -= Time.deltaTime;
+
+            if (dashCounter <= 0)
             {
-                activeMoveSpeed = dashSpeed;
-                DashCounter = dashLenght;
-
-            }
-        }
-
-        if (DashCounter > 0);
-        {
-            DashCounter -= Time.deltaTime;
-
-            if (DashCounter <= 0)
-            {
+                isdashing = false;
+                gameObject.GetComponent<TrailRenderer>().emitting = false;
                 activeMoveSpeed = MoveSpeed;
-                DashCoolCounter = dashCooldown;
-
-            }
-            if (DashCoolCounter > 0)
-            {
-                DashCoolCounter -= Time.deltaTime;
+                dashCoolCounter = dashCooldown;
             }
         }
 
+        if (dashCoolCounter > 0)
+        {
+            dashCoolCounter -= Time.deltaTime;
+        }
 
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (dashCoolCounter <= 0 && dashCounter <= 0)
+            {
+                isdashing = true;
+                gameObject.GetComponent<TrailRenderer>().emitting = true;
+                activeMoveSpeed = dashSpeed;
+                dashCounter = dashLength;
+
+            }
+        }
+
+        rb2d.velocity = MoveInput * activeMoveSpeed;
     }
-
-}   
-
-
-
-
+}

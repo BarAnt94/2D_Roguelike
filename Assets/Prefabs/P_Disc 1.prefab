@@ -276,8 +276,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5703849851374477992}
-  - component: {fileID: 8987614020251110226}
   - component: {fileID: 2424345355631812514}
+  - component: {fileID: 8630776852399822055}
   m_Layer: 6
   m_Name: P_Disc 1
   m_TagString: Disc
@@ -293,8 +293,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4376919155177058078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.31, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -8.877722, y: -2.7476, z: 0}
+  m_LocalScale: {x: 0.55806, y: 0.55806, z: 0.55806}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1456965879097312213}
@@ -302,22 +302,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8987614020251110226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4376919155177058078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc05b2215047f504b93fc0a7e554d8e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_rb: {fileID: 2424345355631812514}
-  m_speed: 10
-  m_rotationHandler: {fileID: 9088216851606129262}
-  m_rotationSpeed: -1000
 --- !u!50 &2424345355631812514
 Rigidbody2D:
   serializedVersion: 4
@@ -334,7 +318,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 33c9aafe2228cb94f8cad25f31291ae6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -345,6 +329,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8630776852399822055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4376919155177058078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 263975b07d7c4ab4caf20f5959e29514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 25
+  rotationAngle: 90
+  m_rotationHandler: {fileID: 0}
+  m_rotationSpeed: 25
 --- !u!1 &4767830553775266586
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +456,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.9150943, g: 0.047481313, b: 0.047481313, a: 1}
+  m_Color: {r: 0.7924528, g: 0.08597367, b: 0.11228735, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

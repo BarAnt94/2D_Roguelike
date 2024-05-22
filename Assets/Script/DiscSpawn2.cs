@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
-public class DiscSpawner : MonoBehaviour
+public class DiscSpawner2 : MonoBehaviour
 {
-    [SerializeField] private DiscController m_discPrefab;
-    [SerializeField] public float m_spawnFrequency = 2;
+    [SerializeField] private GameObject m_discPrefab;
+    [SerializeField] private float m_spawnFrequency = 2;
 
     void Start()
     {
@@ -15,7 +14,7 @@ public class DiscSpawner : MonoBehaviour
 
     private void SpawnDisc()
     {
-        DiscController spawnedDisc = Instantiate(m_discPrefab, transform.position, Quaternion.identity);
+        GameObject spawnedDisc = Instantiate(m_discPrefab, transform.position, Quaternion.identity);
     }
 
     private IEnumerator C_Spawn()
@@ -25,3 +24,4 @@ public class DiscSpawner : MonoBehaviour
         StartCoroutine(C_Spawn());
     }
 }
+
