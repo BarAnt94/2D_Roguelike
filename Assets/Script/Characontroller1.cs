@@ -8,9 +8,9 @@ public class Characontroller : MonoBehaviour
 {
     [Header("VFX")]
     [SerializeField] private ParticleSystem m_deathVFX;
-
     private bool m_isaAlive = true;
     public Camerashake camshake;
+    public GameObject childObject;
 
     private void Start()
     {
@@ -18,7 +18,6 @@ public class Characontroller : MonoBehaviour
     }
     public void TakeDamage()
     {
-        Destroy(gameObject);
         KillChara();
     }
 
@@ -33,6 +32,7 @@ public class Characontroller : MonoBehaviour
         if (collision.CompareTag("Disc") && gameObject.GetComponent<Dash>().isdashing == false)
         {
             TakeDamage();
+             childObject.SetActive(false);
         }
     }
 }

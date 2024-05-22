@@ -8,21 +8,20 @@ public class Death : MonoBehaviour
 {
     public Canvas Canvas;
     public Button retryButton;
-
+    public string SceneName;
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Disc")&& gameObject.GetComponent<Dash>().isdashing == false)
         {
             // Afficher le Canvas
             Canvas.gameObject.SetActive(true);
-
             // Activer le bouton de retry
             retryButton.onClick.AddListener(RetryLevel);
         }
     }
-
-    private void RetryLevel()
+    public void RetryLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene()buildIndex);
+        SceneManager.LoadScene(SceneName);
     }
 }
